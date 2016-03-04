@@ -33,31 +33,40 @@ Public Class Form1
         Dim target As String = "date="
         ClearScreen()
         GetTimePeriodFromDateTimeBoxes()
-        If System.IO.File.Exists(Application.StartupPath & "\Data\Corp_API_Data.xml") = True Then
-            For Each line As String In IO.File.ReadAllLines(Application.StartupPath & "\Data\Corp_API_Data.xml")
-                If line.StartsWith("      <row") Then
-                    resultDate = SearchStringMod1(line, target)
-                    resultDate = Microsoft.VisualBasic.Left(resultDate, 10)
-                    dateStatusS = CompareDate(startDateDTBox1, resultDate)
-                    dateStatusF = CompareDate(finishDateDTBox2, resultDate)
-                    If ((dateStatusS = 0 Or dateStatusS = 1) And (dateStatusF = 0 Or dateStatusF = -1)) Then
-                        refTypeId = SearchStringMod1(line, "refTypeID=")
-                        If (refTypeId = 85) Or (refTypeId = 17) Or (refTypeId = 34) Or (refTypeId = 33) Or (refTypeId = 99) Then
-                            playerName = SearchStringMod1(line, ownername)
-                            playerIsk = SearchStringMod1(line, amount)
-                            AddItemsDictionary(playerName, playerIsk, byPlayerDictionary)
-                            AddItemsDictionary(resultDate, playerIsk, byDayDictionary)
-                        End If
-                    End If
-                Else
-                End If
-            Next
-            Progresbar1.Value = 4
-            ShowDataInList(byPlayerDictionary)
-        Else
-            MsgBox("Problem getting data from EVE servers OR invalid keyID/vCode")
+        If keyId = "" Or vCode = "" Or amount = "" Then
+            MsgBox("Missing keyID or Vcode please very it is correct in API Management")
+            Button1.Text = "Import API"
             Progresbar1.Value = 10
-            '  MsgBox("Can't read data from file!")
+            ToolStripStatusLabel1.Text = "Ready"
+            ClearScreen()
+
+        Else
+            If System.IO.File.Exists(Application.StartupPath & "\Data\Corp_API_Data.xml") = True Then
+                For Each line As String In IO.File.ReadAllLines(Application.StartupPath & "\Data\Corp_API_Data.xml")
+                    If line.StartsWith("      <row") Then
+                        resultDate = SearchStringMod1(line, target)
+                        resultDate = Microsoft.VisualBasic.Left(resultDate, 10)
+                        dateStatusS = CompareDate(startDateDTBox1, resultDate)
+                        dateStatusF = CompareDate(finishDateDTBox2, resultDate)
+                        If ((dateStatusS = 0 Or dateStatusS = 1) And (dateStatusF = 0 Or dateStatusF = -1)) Then
+                            refTypeId = SearchStringMod1(line, "refTypeID=")
+                            If (refTypeId = 85) Or (refTypeId = 17) Or (refTypeId = 34) Or (refTypeId = 33) Or (refTypeId = 99) Then
+                                playerName = SearchStringMod1(line, ownername)
+                                playerIsk = SearchStringMod1(line, amount)
+                                AddItemsDictionary(playerName, playerIsk, byPlayerDictionary)
+                                AddItemsDictionary(resultDate, playerIsk, byDayDictionary)
+                            End If
+                        End If
+                    Else
+                    End If
+                Next
+                Progresbar1.Value = 4
+                ShowDataInList(byPlayerDictionary)
+            Else
+                MsgBox("Problem getting data from EVE servers OR invalid keyID/vCode")
+                Progresbar1.Value = 10
+                '  MsgBox("Can't read data from file!")
+            End If
         End If
     End Function
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
@@ -273,7 +282,9 @@ Microsoft.VisualBasic.FileIO.RecycleOption.SendToRecycleBin)
         Next
         Progresbar1.Value = 8
         Label3.Text = String.Format("{0}", Format(summa, "##,###,###,###.00"))
-        'wrong key id chek here
+
+        'valuecannot be null 
+        'by wrong load file
         Label4.Text = String.Format(topname)
         Label8.Text = String.Format("{0}", Format(topRAt, "##,###,###,###.00"))
         PopulateChart(dict)
@@ -374,7 +385,11 @@ Microsoft.VisualBasic.FileIO.RecycleOption.SendToRecycleBin)
         ListBox2.Items.Clear()
         Chart1.Series(0).Points.Clear()
         Chart2.Series(0).Points.Clear()
-
+        Label3.Text = ""
+        Label8.Text = ""
+        Label4.Text = ""
+        Chart1.Series("ISK").IsVisibleInLegend = False
+        Chart2.Series("Series1").IsVisibleInLegend = False
     End Function
     Public Function LoadFile(fileName As String)
         'Reads the loaded file and populates the charts
@@ -396,6 +411,29 @@ Microsoft.VisualBasic.FileIO.RecycleOption.SendToRecycleBin)
                 part1 = line.Substring(2, posX - 3)
                 part2 = line.Substring(posX, line.Length - posX)
                 AddItemsDictionary(part1, part2, byDayDictionary)
+            Else
+
+                AddItemsDictionary("Spai awoxes your wallet", 6984548643, byPlayerDictionary)
+                AddItemsDictionary("It's very effective", 9, byPlayerDictionary)
+                AddItemsDictionary(" > >       ;..;      < < <", 8, byPlayerDictionary)
+                AddItemsDictionary(" > > Btw, wrong file < < <", 7, byPlayerDictionary)
+                AddItemsDictionary(" > >                 < < <", 6, byPlayerDictionary)
+                AddItemsDictionary(" > > try File->Save  < < <", 5, byPlayerDictionary)
+                AddItemsDictionary(" > > Then File->Load < < <", 4, byPlayerDictionary)
+                AddItemsDictionary(" > > the saved data. < < <", 3, byPlayerDictionary)
+
+
+
+
+                AddItemsDictionary("Yesterday", 78963854, byDayDictionary)
+                AddItemsDictionary("Today", 463156485, byDayDictionary)
+                AddItemsDictionary("Tomorow", 99321657656, byDayDictionary)
+                Progresbar1.Value = 10
+                ToolStripStatusLabel1.Text = "Ready"
+                ShowDataInList(byPlayerDictionary)
+
+                MsgBox("Wrong format for file, please select correct file located in " & Application.StartupPath & "\logs")
+                Exit Function
             End If
         Next
         ShowDataInList(byPlayerDictionary)
@@ -433,6 +471,7 @@ Microsoft.VisualBasic.FileIO.RecycleOption.SendToRecycleBin)
     End Function
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
         Createdb()
+        ClearScreen()
 
         DateTimePicker1.Value = DateTime.Now.AddDays(-7)
         DateTimePicker2.Value = DateTime.Now

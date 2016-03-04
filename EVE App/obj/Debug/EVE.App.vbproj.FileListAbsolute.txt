@@ -53,3 +53,31 @@ C:\Users\Szhyatszky\Desktop\Top_Ratter\EVE App\bin\Debug\Top Ratter.xml
 C:\Users\Szhyatszky\Desktop\Top_Ratter\EVE App\obj\Debug\Top Ratter.exe
 C:\Users\Szhyatszky\Desktop\Top_Ratter\EVE App\obj\Debug\Top Ratter.xml
 C:\Users\Szhyatszky\Desktop\Top_Ratter\EVE App\obj\Debug\Top Ratter.pdb
+C:\Users\Szhyatszky\Desktop\Top_Ratter - Copy\EVE App\bin\Debug\Top Ratter.exe.config
+C:\Users\Szhyatszky\Desktop\Top_Ratter - Copy\EVE App\obj\Debug\Top Ratter.exe
+C:\Users\Szhyatszky\Desktop\Top_Ratter - Copy\EVE App\obj\Debug\Top Ratter.xml
+C:\Users\Szhyatszky\Desktop\Top_Ratter - Copy\EVE App\obj\Debug\Top Ratter.pdb
+C:\Users\Szhyatszky\Desktop\Top_Ratter - Copy\EVE App\bin\Debug\Top Ratter.exe
+C:\Users\Szhyatszky\Desktop\Top_Ratter - Copy\EVE App\bin\Debug\Top Ratter.pdb
+C:\Users\Szhyatszky\Desktop\Top_Ratter - Copy\EVE App\bin\Debug\Top Ratter.xml
+C:\Users\Szhyatszky\Desktop\Top_Ratter - Copy\EVE App\obj\Debug\EVE App.vbprojResolveAssemblyReference.cache
+C:\Users\Szhyatszky\Desktop\Top_Ratter - Copy\EVE App\obj\Debug\EVE_App.Form1.resources
+C:\Users\Szhyatszky\Desktop\Top_Ratter - Copy\EVE App\obj\Debug\EVE_App.Form2.resources
+C:\Users\Szhyatszky\Desktop\Top_Ratter - Copy\EVE App\obj\Debug\EVE_App.Form3.resources
+C:\Users\Szhyatszky\Desktop\Top_Ratter - Copy\EVE App\obj\Debug\EVE_App.Form4.resources
+C:\Users\Szhyatszky\Desktop\Top_Ratter - Copy\EVE App\obj\Debug\EVE_App.Resources.resources
+C:\Users\Szhyatszky\Desktop\Top_Ratter - Copy\EVE App\obj\Debug\EVE App.vbproj.GenerateResource.Cache
+C:\Users\Szhyatszky\Desktop\Top_Ratter - Copy - Copy\EVE App\bin\Debug\Top Ratter.exe.config
+C:\Users\Szhyatszky\Desktop\Top_Ratter - Copy - Copy\EVE App\obj\Debug\Top Ratter.exe
+C:\Users\Szhyatszky\Desktop\Top_Ratter - Copy - Copy\EVE App\obj\Debug\Top Ratter.xml
+C:\Users\Szhyatszky\Desktop\Top_Ratter - Copy - Copy\EVE App\obj\Debug\Top Ratter.pdb
+C:\Users\Szhyatszky\Desktop\Top_Ratter - Copy - Copy\EVE App\bin\Debug\Top Ratter.exe
+C:\Users\Szhyatszky\Desktop\Top_Ratter - Copy - Copy\EVE App\bin\Debug\Top Ratter.pdb
+C:\Users\Szhyatszky\Desktop\Top_Ratter - Copy - Copy\EVE App\bin\Debug\Top Ratter.xml
+C:\Users\Szhyatszky\Desktop\Top_Ratter - Copy - Copy\EVE App\obj\Debug\EVE App.vbprojResolveAssemblyReference.cache
+C:\Users\Szhyatszky\Desktop\Top_Ratter - Copy - Copy\EVE App\obj\Debug\EVE_App.Form1.resources
+C:\Users\Szhyatszky\Desktop\Top_Ratter - Copy - Copy\EVE App\obj\Debug\EVE_App.Form2.resources
+C:\Users\Szhyatszky\Desktop\Top_Ratter - Copy - Copy\EVE App\obj\Debug\EVE_App.Form3.resources
+C:\Users\Szhyatszky\Desktop\Top_Ratter - Copy - Copy\EVE App\obj\Debug\EVE_App.Form4.resources
+C:\Users\Szhyatszky\Desktop\Top_Ratter - Copy - Copy\EVE App\obj\Debug\EVE_App.Resources.resources
+C:\Users\Szhyatszky\Desktop\Top_Ratter - Copy - Copy\EVE App\obj\Debug\EVE App.vbproj.GenerateResource.Cache

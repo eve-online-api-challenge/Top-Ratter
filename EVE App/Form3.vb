@@ -174,8 +174,41 @@ Public Class Form3
         TextBox1.Text = ""
         TextBox2.Text = ""
         TextBox3.Text = ""
+        'added now
+        amount = ""
+        keyId = ""
+        vCode = ""
+        '--------
+        Form1.ClearScreen()
+
         PopulateCombobox1(ComboBox1)
         Form1.PopulateToolStripCbox1()
+
+        For Each APIkeys As String In IO.File.ReadAllLines(Application.StartupPath & "\Data\APIcodes.txt")
+            If APIkeys.StartsWith("corpname:") Then
+
+
+            Else
+                Me.ComboBox1.Enabled = False
+                Me.TextBox1.Enabled = False
+                Me.TextBox2.Enabled = False
+                Me.TextBox3.Enabled = False
+                Me.ComboBox2.Enabled = False
+                Me.Button3.Enabled = False
+                Me.Button2.Enabled = False
+            End If
+
+        Next
+
+
+
+        Me.Refresh()
+        ' Application.Restart()
+
+        ' Me.Controls.Clear() 'removes all the controls on the form
+        ' InitializeComponent() 'load all the controls again
+        ' formHome_Load(e, e) 'Load everything in your form load event again
+
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
@@ -239,4 +272,17 @@ Public Class Form3
         Form2.Show()
     End Sub
 
+    Private Sub Form3_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        'cheks if there is records and then changes button1 text accordingly
+
+        If Form1.ComboBox1.Items.Count <= 1 Then
+            '  cb.SelectedIndex = 0
+            Form1.Button1.Text = "Import API"
+        End If
+        '   MsgBox(Form1.ComboBox1.Items.Count)
+    End Sub
+
+    Private Sub Form3_MouseClick(sender As Object, e As MouseEventArgs) Handles Me.MouseClick
+        '    MsgBox("mouseclick")
+    End Sub
 End Class

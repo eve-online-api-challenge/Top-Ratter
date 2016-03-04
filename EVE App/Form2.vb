@@ -7,12 +7,35 @@ Public Class Form2
         ' Creates new entry of corporation 
         Dim CorpName As String
         Dim i As Integer
-
+        Dim corpname2 As String
+        Dim index As Integer
+        Dim index2 As Integer
         Dim APIcode As String
+        Dim rowkey As String
 
         CorpName = TextBox2.Text
         keyId = TextBox1.Text
         vCode = TextBox3.Text
+
+
+        For Each line As String In IO.File.ReadAllLines(Application.StartupPath & "\Data\APIcodes.txt")
+            If line.StartsWith("corpname:") Then ' gets the line where the corp name matches with the combobox item
+                rowkey = line
+                index = InStr(1, rowkey, ":", CompareMethod.Text)
+                index2 = InStr(1, rowkey, ";", CompareMethod.Text)
+                corpname2 = Mid(rowkey, index + 1, index2 - 1 - index) 'gets the key id from file
+                If corpname2 = CorpName Then
+                    MsgBox("Please use another name then" & CorpName)
+                    Exit Sub
+                End If
+            End If
+        Next
+
+
+
+
+
+
 
         If ToolStripComboBox1.SelectedItem = "" Or keyId = "" Or vCode = "" Or CorpName = "" Then
             MessageBox.Show("Something is empty, please fill in the fields")
